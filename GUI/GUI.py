@@ -1,5 +1,5 @@
 from PyQt5 import QtGui, QtWidgets, uic
-import serial
+from protocol import K6418
 from serial.tools.list_ports import comports
 import sys
 
@@ -27,14 +27,13 @@ class GUI(QtWidgets.QMainWindow):
     def start(self):
         port = self.port_list.currentText()
         f = self.file_edit.text()
-        if not port == "":
+        if not port == "" and not f == "":
             print(port)
         else:
-            print("kein port vorhanden!")
-        if not f == "":
-            print(f)
-        else:
-            print("keine Datei ausgewählt!")
+            if port == "":
+                print("kein port vorhanden!")
+            if f == "":
+                print("keine Datei ausgewählt!")
 
     def select_file(self):
         fname = QtWidgets.QFileDialog.getOpenFileName(self, 'Open file', '',"HPGL Files (*.hpgl)")
