@@ -1,3 +1,4 @@
+#!/bin/python3
 from PyQt5 import QtGui, QtWidgets, uic
 from protocol import K6418
 from serial.tools.list_ports import comports

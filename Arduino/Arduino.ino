@@ -3,7 +3,7 @@
 SoftwareSerial plotter(2, 3);
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
   plotter.begin(9600);
 }
 
